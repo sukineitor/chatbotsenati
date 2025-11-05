@@ -1,0 +1,7 @@
+{
+  "name": "SaborBot",
+  "description": "An intelligent restaurant assistant with chat, voice control, and continuous call mode, powered by Gemini.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
