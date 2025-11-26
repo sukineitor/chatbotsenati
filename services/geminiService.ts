@@ -2,7 +2,13 @@ import { GoogleGenAI, Type, FunctionDeclaration } from "@google/genai";
 import { Message, FunctionCall } from '../types';
 import { menuItems } from '../data/menuData';
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY as string });
+const apiKey = import.meta.env.VITE_GOOGLE_API_KEY;
+
+if (!apiKey) {
+  console.warn('⚠️ VITE_GOOGLE_API_KEY no está configurada. Por favor, añade tu API Key de Google Generative AI en el archivo .env.local');
+}
+
+const ai = new GoogleGenAI({ apiKey: apiKey || '' });
 
 const videoSchema = {
   type: Type.OBJECT,
